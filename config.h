@@ -8,6 +8,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#770000";
+static char selbgcolor[]            = "#005577";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -61,6 +67,25 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+                { "normbgcolor",        STRING,  &normbgcolor },
+                { "normbordercolor",    STRING,  &normbordercolor },
+                { "normfgcolor",        STRING,  &normfgcolor },
+                { "selbgcolor",         STRING,  &selbgcolor },
+                { "selbordercolor",     STRING,  &selbordercolor },
+                { "selfgcolor",         STRING,  &selfgcolor },
+//                { "borderpx",           INTEGER, &borderpx },
+//                { "snap",               INTEGER, &snap },
+//                { "showbar",            INTEGER, &showbar },
+//                { "topbar",             INTEGER, &topbar },
+//                { "nmaster",            INTEGER, &nmaster },
+//                { "resizehints",        INTEGER, &resizehints },
+//                { "mfact",                      FLOAT,   &mfact },
+};
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
